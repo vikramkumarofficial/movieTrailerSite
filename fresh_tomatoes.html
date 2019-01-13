@@ -1,0 +1,178 @@
+
+<head>
+    <meta charset="utf-8">
+    <title>Fresh Tomatoes!</title>
+
+    <!-- Bootstrap 3 -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <style type="text/css" media="screen">
+        body {
+            padding-top: 80px;
+        }
+        #trailer .modal-dialog {
+            margin-top: 200px;
+            width: 640px;
+            height: 480px;
+        }
+        .hanging-close {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            z-index: 9001;
+        }
+        #trailer-video {
+            width: 100%;
+            height: 100%;
+        }
+        .movie-tile {
+            margin-bottom: 20px;
+            padding-top: 20px;
+        }
+        .movie-tile:hover {
+            background-color: #EEE;
+            cursor: pointer;
+        }
+        .scale-media {
+            padding-bottom: 56.25%;
+            position: relative;
+        }
+        .scale-media iframe {
+            border: none;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background-color: white;
+        }
+        h2{
+        color:red;
+        }
+        h4{
+        color:green;
+        }
+        h5{
+        color:blue;
+        }
+    </style>
+    <script type="text/javascript" charset="utf-8">
+        // Pause the video when the modal is closed
+        $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
+            // Remove the src so the player itself gets removed, as this is the only
+            // reliable way to ensure the video stops playing in IE
+            $("#trailer-video-container").empty();
+        });
+        // Start playing the video whenever the trailer modal is opened
+        $(document).on('click', '.movie-tile', function (event) {
+            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
+            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
+            $("#trailer-video-container").empty().append($("<iframe></iframe>", {
+              'id': 'trailer-video',
+              'type': 'text-html',
+              'src': sourceUrl,
+              'frameborder': 0
+            }));
+        });
+        // Animate in the movies when the page loads
+        $(document).ready(function () {
+          $('.movie-tile').hide().first().show("fast", function showNext() {
+            $(this).next("div").show("fast", showNext);
+          });
+        });
+    </script>
+</head>
+
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <!-- Trailer Video Modal -->
+    <div class="modal" id="trailer">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
+            <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
+          </a>
+          <div class="scale-media" id="trailer-video-container">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Page Content -->
+    <div class="container">
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Fresh Tomatoes Movie Trailers</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="5-nmEOyF_tc" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/2/2d/Ek_Tha_Tiger_theatrical_poster.jpg" width="220" height="342">
+    <h2>Ek Tha Tiger</h2>
+    <h4>Launch:15 August 2012</h4>
+    <h4>Duration:133 minutes</h4>
+    <h4>Box office:&#x20b9;350 crore</h4>
+    <h5>The plot centers on an Indian spy (RAW) code-named Tiger who falls in love with a Pakistani spy (ISI) during an investigation and how Tiger's ideology and principles change over time</h5>
+
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="ePO5M5DE01I" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/5/5e/Tiger_Zinda_Hai_-_Poster.jpg" width="220" height="342">
+    <h2>Tiger Zinda Hai</h2>
+    <h4>Launch:22 December 2017</h4>
+    <h4>Duration:161 minutes</h4>
+    <h4>Box office:&#x20b9;570.32 crore</h4>
+    <h5>RAW Agent Tiger joins forces with Zoya, a Pakistani spy, in order to rescue a group of nurses who are held hostage by a terrorist organisation.</h5>
+
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="u-j1nx_HY5o" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/b/b6/Kick_%282014_film%29_Official_release_poster.jpg" width="220" height="342">
+    <h2>Kick</h2>
+    <h4>Launch:25 July 2014</h4>
+    <h4>Duration:146 minutes</h4>
+    <h4>Box office:&#x20b9;4.02 billion</h4>
+    <h5>A slippery thief (Salman Khan) plays an important part in the lives of a psychiatrist (Jacqueline Fernandez) and her prospective husband (Randeep Hooda), a police officer from India.</h5>
+
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="wPxqcq6Byq0" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/1/1f/Sultan_film_poster.jpg" width="220" height="342">
+    <h2>Sultan</h2>
+    <h4>Launch:6 July 2016</h4>
+    <h4>Duration:170 minutes</h4>
+    <h4>Box office:&#x20b9;589.25 crore</h4>
+    <h5>After the death of his son, Sultan Ali Khan, a middle-aged wrestler, gives up the sport. Years later, he sets out to revive his career as he needs the prize money and wants to regain his lost respect.</h5>
+
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="vyX4toD395U" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/d/dd/Bajrangi_Bhaijaan_Poster.jpg" width="220" height="342">
+    <h2>Bajrangi Bhaijaan</h2>
+    <h4>Launch:17 July 2015</h4>
+    <h4>Duration:159 minutes</h4>
+    <h4>Box office:&#x20b9;839.19 crore</h4>
+    <h5>Pavan, a devoted follower of Lord Hanuman, faces numerous challenges when he tries to reunite Munni with her family in Pakistan after she gets lost while travelling back home with her mother.</h5>
+
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="fxm4KcKDQl0" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/2/26/Wanted7.jpg" width="220" height="342">
+    <h2>Wanted</h2>
+    <h4>Launch:18 September 2009</h4>
+    <h4>Duration:154 minutes</h4>
+    <h4>Box office:&#x20b9;130 crore</h4>
+    <h5>Radhe is a ruthless gangster who will kill anyone for money. He is attracted towards Jhanvi, a middle class girl, who does not approve of his work and wants him to change.</h5>
+
+</div>
+
+    </div>
+  </body>
+</html>
